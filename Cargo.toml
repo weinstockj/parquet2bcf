@@ -1,0 +1,12 @@
+[package]
+name = "parquet2bcf"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = {version = "4.5.23", features = ["derive"]}
+env_logger = "0.11.5"
+log = "0.4.22"
+polars = { version = "0.45.1", features = ["polars-io", "parquet", "lazy"] }
+polars-io = "0.45.1"
+rust-htslib = "0.49.0"
