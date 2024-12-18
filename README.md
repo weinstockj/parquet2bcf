@@ -4,11 +4,11 @@ This project reads variant data from a Parquet file and writes the results to a 
 
 The input Parquet file should contain variant data in the following format:
     Columns: 
-        - `chrom`: Chromosome name.
-        - `pos`: Position on the chromosome.
-        - `ref`: Reference allele.
-        - `alt`: Alternate allele.
-        - `eid`: Numeric sample ID.
+        - `chrom`: Chromosome name.  
+        - `pos`: Position on the chromosome.  
+        - `ref`: Reference allele.  
+        - `alt`: Alternate allele.  
+        - `eid`: Numeric sample ID.  
 
 There should be one row per non-reference genotype, i.e., this is a sparse representation of the genotypes since homozygous reference genotypes are not included.
 
