@@ -97,8 +97,8 @@ fn write_samples(header: &mut Header, samples: &Vec<String>) {
 fn create_lookup(samples: &Vec<String>) -> HashMap<&[u8], ()> {
     let mut sample_lookup: HashMap<&[u8], ()> = HashMap::new();
 
-    for sample in samples {
-        sample_lookup.insert(sample.as_bytes(), ());
+    for s in samples {
+        sample_lookup.insert(s.as_bytes(), ());
     }
 
     sample_lookup
@@ -166,7 +166,7 @@ fn write_to_bcf(
             .unwrap()
             .column("eid")
             .unwrap()
-            .i32()
+            .str()
             .unwrap()
             .into_iter()
             .map(|s| s.unwrap().to_string())
@@ -235,7 +235,7 @@ mod tests {
             Column::new("pos".into(), &[1, 2, 3]),
             Column::new("ref".into(), &["A", "T", "C"]),
             Column::new("alt".into(), &["T", "G", "A"]),
-            Column::new("eid".into(), &[1, 2, 1]), // expect int32 eid in parquet
+            Column::new("eid".into(), &["1", "2", "1"]),
         ])
         .unwrap();
 
