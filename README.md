@@ -1,11 +1,16 @@
 # parquet2bcf
 
-This project reads variant data from a Parquet file, processes it, and writes the results to a BCF (Binary Call Format) file. 
+This project reads variant data from a Parquet file and writes the results to a BCF (Binary Call Format) file. 
 
-## Features
+The input Parquet file should contain variant data in the following format:
+    Columns: 
+        - `chrom`: Chromosome name.
+        - `pos`: Position on the chromosome.
+        - `ref`: Reference allele.
+        - `alt`: Alternate allele.
+        - `eid`: Numeric sample ID.
 
-- Reads variant data from a Parquet file. There is one row per non-reference genotype.
-- Writes the processed data to a BCF file.
+There should be one row per non-reference genotype, i.e., this is a sparse representation of the genotypes since homozygous reference genotypes are not included.
 
 ## Installation
 
