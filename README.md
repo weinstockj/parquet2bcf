@@ -8,7 +8,7 @@ The input Parquet file should contain variant data in the following format:
         - `pos`: Position on the chromosome.  
         - `ref`: Reference allele.  
         - `alt`: Alternate allele.  
-        - `eid`: Numeric sample ID.  
+        - `eid`: Sample ID.  
 
 There should be one row per non-reference genotype, i.e., this is a sparse representation of the genotypes since homozygous reference genotypes are not included.
 
