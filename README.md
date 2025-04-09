@@ -1,14 +1,17 @@
+[![Continuous integration](https://github.com/weinstockj/parquet2bcf/actions/workflows/ci.yaml/badge.svg)](https://github.com/weinstockj/parquet2bcf/actions/workflows/ci.yaml)
+
 # parquet2bcf
 
 This project reads variant data from a Parquet file and writes the results to a BCF (Binary Call Format) file. 
 
 The input Parquet file should contain variant data in the following format:
     Columns: 
-        - `chrom`: Chromosome name.  
-        - `pos`: Position on the chromosome.  
-        - `ref`: Reference allele.  
-        - `alt`: Alternate allele.  
-        - `eid`: Sample ID.  
+
+- `chrom`: Chromosome name.  
+- `pos`: Position on the chromosome.  
+- `ref`: Reference allele.  
+- `alt`: Alternate allele.  
+- `eid`: Sample ID.  
 
 There should be one row per non-reference genotype, i.e., this is a sparse representation of the genotypes since homozygous reference genotypes are not included.
 
@@ -45,7 +48,10 @@ target/release/parquet2bcf --parquet-path variants.parquet \
 The project uses the `log` crate for logging. By default, it logs informational messages. You can adjust the logging level by setting the `RUST_LOG` environment variable:
 
 ```sh
-RUST_LOG=info cargo run --release
+RUST_LOG=INFO ./target/release/parquet2bcf --parquet-path variants.parquet \
+    --samples-path samples.txt \
+    --output-path output.bcf \
+    --n-threads 4
 ```
 
 ## Testing
