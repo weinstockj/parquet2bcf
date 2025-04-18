@@ -1,0 +1,10 @@
+[book]
+authors = ["Josh Weinstock"]
+language = "en"
+multilingual = false
+src = "src"
+title = "parquet2bcf Documentation"
+
+[output.html]
+git-repository-url = "https://github.com/weinstockj/parquet2bcf"
+edit-url-template = "https://github.com/weinstockj/parquet2bcf/edit/master/docs/{path}"
